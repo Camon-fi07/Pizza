@@ -39,7 +39,7 @@ html, body {
 
 .head {
   height: 126.45px;
-  background: url("/img/testBackground.jpg");
+  background: url("img/testBackground.jpg");
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -198,7 +198,7 @@ html, body {
   margin-bottom: 5px;
   width: 33px;
   height: 32px;
-  background: url("/img/ellipseBuy.png") center/cover no-repeat;
+  background: url("img/ellipseBuy.png") center/cover no-repeat;
   transition-property: transform;
   transition-duration: 0.12s;
 }
