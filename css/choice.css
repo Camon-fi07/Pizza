@@ -39,7 +39,7 @@ html, body {
 
 .head {
   height: 126.45px;
-  background: url("img/testBackground.jpg");
+  background: url("../img/testBackground.jpg");
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -117,7 +117,7 @@ html, body {
   border-radius: 45px;
   margin-bottom: 10px;
   transition-property: transform, box-shadow;
-  transition-duration: 0.15s, 0.2s;
+  transition-duration: 0.1s, 0.2s;
 }
 .content .buttons .buttons__button span {
   font-weight: 600;
@@ -198,7 +198,7 @@ html, body {
   margin-bottom: 5px;
   width: 33px;
   height: 32px;
-  background: url("img/ellipseBuy.png") center/cover no-repeat;
+  background: url("../img/ellipseBuy.png") center/cover no-repeat;
   transition-property: transform;
   transition-duration: 0.12s;
 }
