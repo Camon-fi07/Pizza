@@ -38,8 +38,32 @@
                 </h1>
                 <span class="content__cost">Общая стоимость: </span>
                 <div class="content__bought-products">
-                    
                 </div>
+                <form class="content__form"
+                    action="https://shift-winter-2023-backend.onrender.com/api#/%F0%9F%8D%95%20pizza/PizzaController_createPizzaOrder"
+                    method="post">
+                    <h2 class="content__form-title">Контактные данные</h2>
+                    <div class="content__form-row">
+                        <input name="firstName" type="text">
+                        <input name="lastName" type="text">
+                        <input name="patronymic" type="text">
+                        <input name="withoutPatronymic" type="checkbox">
+                        <input name="phoneNumber" type="tel">
+                        <input name="dateOfBirth" type="text">
+                    </div>
+                    
+                    <h2 class="content__form-title">Адрес доставки</h2>
+                    <div class="content__form-row">
+                        <input name="firstName" type="text">
+                        <input name="lastName" type="text">
+                        <input name="patronymic" type="text">
+                        <input name="withoutPatronymic" type="checkbox">
+                        <textarea name="comment"></textarea>
+                    </div>
+                    <button class="content__form-submit" type="submit">
+                        <span>Отправить заказ</span>
+                    </button>
+                </form>
             </div>
         </main>
         <footer class="footer">

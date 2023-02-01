@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Inter";
-    src: url("/fonts/Inner/Inter-VariableFont_slnt\,wght.ttf")
+    src: url("/fonts/Inner/Inter-VariableFont_slnt\,wght.ttf");
 }
 button{
     background: none;
@@ -128,10 +128,15 @@ body {
     }
 
     .content__bought-products {
+        margin-bottom: 80px;
     }
      
     .content__product {
         margin-bottom: 20px;
+    }
+
+    & .content__product:last-child{
+        margin-bottom: 0;
     }
 
     .product {
@@ -182,11 +187,79 @@ body {
         }
         .product__cancel {
             display: inline-block;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 140%;
             padding: 2px;
             justify-self: flex-end;
             transform: rotate(46.53deg);
         }
     }
+
+    .content__form{
+        margin-bottom: 79px;
+        .content__form-row{
+            display: flex;
+            flex-wrap: wrap;
+            width: 75%;
+            align-items: center;
+            & input, textarea{
+                border-radius: 10px;
+                border: 1px solid #D4D4D4;
+                margin: 0 24px 20px 0;
+            }
+            & input{
+                display: inline-block;
+                width: 28%;
+                min-width: 200px;
+                height: 40px;
+            }
+
+            & input:nth-child(4) {
+                min-width: 10px;
+                width: 16px;
+                height: 16px;
+            }
+
+            & textarea{
+                width: 542px;
+                height: 96px;
+            }
+        }
+
+        .content__form-title{
+            margin-bottom: 40px;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 140%;
+        }
+    }
+    .content__form-submit{
+        display: inline-block;
+        min-width: 250px;
+        width: 27%;
+        height: 70px;
+        background: #191F2C;
+        border-radius: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition-property: box-shadow, transform;
+        transition-duration: 0.2s, 0.2s;
+        &:hover {
+            box-shadow: 0 0 3px 5px #dddddd;
+            transform: scale(0.95);
+        }
+
+        & span{
+            font-size: 24px;
+            line-height: 140%;
+            color: white;
+        }
+
+        
+    }
+    
     
 }
 

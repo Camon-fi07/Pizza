@@ -255,7 +255,6 @@ html, body {
   margin: 0;
 }
 
-
 @media (min-width: 1500px) {
   .head {
     justify-content: space-around;
