@@ -81,9 +81,9 @@ blockOfBoughtProducts.addEventListener("click", function(event){
 
         costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
     }
-    
+    // Удаление
     if (event.target.closest(".product__cancel")){
-        cost -= parseInt(event.target.closest(".product__cancel").previousElementSibling.previousElementSibling.textContent);
+        cost -= parseInt(event.target.closest(".product__cancel").previousElementSibling.previousElementSibling.textContent) * parseInt(event.target.closest(".product__cancel").previousElementSibling.children[1].textContent);
 
         costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
 
