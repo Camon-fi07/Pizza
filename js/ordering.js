@@ -22,12 +22,13 @@ boughtProducts = boughtProducts.slice(0, boughtProducts.length - 1);
 let cost = 0;
 function getCost(boughtProducts){
     boughtProducts.forEach(element => {
-        cost += parseInt(allPizzas[Number(element)][2]);
+        if(element != "") cost += parseInt(allPizzas[Number(element)][2]);
     });
 
     costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
 }
 
+// Заполнение корзины
 getCost(boughtProducts);
 function addElement(index){
     blockOfBoughtProducts.insertAdjacentHTML(
@@ -51,7 +52,21 @@ function addElement(index){
     )
 }
 
-boughtProducts.forEach((element) => addElement(Number(element)));
+boughtProducts.forEach((element) => {if (element != "") addElement(Number(element))});
+
+//Удаление пиццы и обновление хранилища
+function deleteProduct(element){
+    let index;
+    for (index in blockOfBoughtProducts.children) {
+        if (blockOfBoughtProducts.children[index] == element){
+            break;
+        }
+    }
+    boughtProducts.splice(index, 1);
+    localStorage.setItem('boughtProducts', boughtProducts.join(",") + ",");
+}
+
+
 let countOfProducts;
 blockOfBoughtProducts.addEventListener("click", function(event){
     //минус
@@ -65,7 +80,13 @@ blockOfBoughtProducts.addEventListener("click", function(event){
         costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
 
         if(countOfProducts == 0) {
+            deleteProduct(event.target.closest(".product__panel_minus").parentElement.parentElement);
+
             event.target.closest(".product__panel_minus").parentElement.parentElement.remove();
+
+            localStorage.setItem("count", localStorage.getItem("count") - 1);
+            linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+
         }
         else{
             event.target.closest(".product__panel_minus").nextElementSibling.textContent = countOfProducts;
@@ -87,7 +108,14 @@ blockOfBoughtProducts.addEventListener("click", function(event){
 
         costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
 
-        event.target.closest(".product__cancel").parentElement.remove();
-    }
+        deleteProduct(event.target.closest(".product__cancel").parentElement);
 
+        event.target.closest(".product__cancel").parentElement.remove();
+
+        localStorage.setItem("count", localStorage.getItem("count") - 1);
+        linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+    }
 })
+
+
+
