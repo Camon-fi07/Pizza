@@ -21,6 +21,7 @@ a:visited {
 }
 
 html, body{
+    height: 100%;
     font-size: 16px;
     line-height: 24px;
 }
@@ -52,6 +53,13 @@ html, body{
         flex-wrap: wrap;
         padding: 0 0 0 79px;
         align-items: center;
+        position: relative;
+    }
+
+    .head__green{
+        position: absolute;
+        right: 0;
+        top: -30px;
     }
 
     .head__image{
