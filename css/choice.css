@@ -255,22 +255,7 @@ html, body {
   margin: 0;
 }
 
-@media (max-width: 982px) {
-  .head {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 0 0 0;
-  }
-  .head .logo {
-    margin: 0 0 10px 0;
-  }
-  .head .menu {
-    width: 90%;
-  }
-  .head .menu .menu__item {
-    font-size: 1.5rem;
-  }
-}
+
 @media (min-width: 1500px) {
   .head {
     justify-content: space-around;
