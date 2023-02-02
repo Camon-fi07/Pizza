@@ -1,39 +1,86 @@
-function findIndex(collection, element){
-    let index = 0;
-    for (const elementNow of collection) {
-        if (elementNow == element) return index;
-        index++;
-    }
-}
-
 function findIndexOfPizza(collection, element){
     let index = 0;
     for (const elementNow of collection) {
-        if(element == elementNow.children[4]) return index;
+        if(element == elementNow) return index;
         index++
     }
 }
 
+function CreateProduct(name, size, structure, cost, type, image){
+   this.name = name;
+   this.size = size;
+   this.structure = structure;
+   this.cost = cost;
+   this.type = type;
+   this.image = image;
+}
 
-const content = document.querySelector('.content');
+// Добавление продуктов
+const allProducts = [
+    new CreateProduct("Карбонара", "30см", "Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок", 749, "recomendated stock", "img/pizzas/Carbonara.png"),
+
+    new CreateProduct("Аррива!", "30см", "Цыпленок, острая чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла", 649, "recomendated sweet", "img/pizzas/Arriva.png"),
+
+    new CreateProduct("Диабло", "30см", "Острая чоризо, острый перец халапеньо, соус барбекю, митболы, томаты", 749, "recomendated", "img/pizzas/Diablo.png"),
+
+    new CreateProduct("Овощи и грибы", "30см", "Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, томатный соус", 549, "recomendated without-meat", "img/pizzas/VegMush.png"),
+
+    new CreateProduct("Карбонара", "20см", "Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок", 649, "recomendated stock", "img/pizzas/Carbonara.png"),
+
+    new CreateProduct("Аррива!", "20см", "Цыпленок, острая чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла", 549, "recomendated sweet", "img/pizzas/Arriva.png"),
+
+    new CreateProduct("Диабло", "20см", "Острая чоризо, острый перец халапеньо, соус барбекю, митболы, томаты", 649, "recomendated", "img/pizzas/Diablo.png"),
+
+    new CreateProduct("Овощи и грибы", "20см", "Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, томатный соус", 449, "recomendated without-meat", "img/pizzas/VegMush.png")
+]
+
+localStorage.setItem("countOfProducts", allProducts.length);
+for (const index in allProducts) {
+    localStorage.setItem(index, JSON.stringify(allProducts[index]));
+}
+
+const blockForProducts = document.querySelector('.products');
+
+for (const product of allProducts) {
+    blockForProducts.insertAdjacentHTML(
+        "beforeend", 
+        `
+        <div class="products__items item ${product.type}">
+            <div class="item__image">
+                <img src=${product.image} alt="">
+            </div>
+            <div class="item__title">
+                <h2>${product.name}</h2>
+                <span>${product.size}</span>
+            </div>
+            <p class="item__text">${product.structure}</p>
+            <span class="item__cost">${product.cost} ₽</span>
+            <button class="item__purchase">
+                <img src="img/bagBlack.png" alt="">
+                <img class="hidden" src="img/bagWhite.png" alt="">
+            </button>
+        </div>
+        `
+    )
+}
+
+
 const buttons = document.querySelector('.buttons');
-const products = document.querySelector('.products');
-const linkOrders = document.querySelector(".menu").children[2].children[0];
-
-const typeOfProducts = ["recomendated", "without-meat", "sweet", "stocks", "drinks"];
-
-let oldElement, index;
+let oldElement, typeNow;
 buttons.addEventListener("click", function (event) {
     if (event.target.closest(".buttons__button")) {
-        if (oldElement) oldElement.style.background = "linear-gradient(0deg, #ECEEF6, #ECEEF6), #59AAF1";
+        // Убираем стили с кнопки, нажатой до этого
+        if (oldElement){
+            oldElement.style.background = "linear-gradient(0deg, #ECEEF6, #ECEEF6), #59AAF1";
+        } 
 
         event.target.closest(".buttons__button").style.background = "#F6B716";
         oldElement = event.target.closest(".buttons__button");
 
-        index = findIndex(buttons.children, event.target.closest(".buttons__button"));
-
-        for (const element of products.children) {
-            if (!element.classList.contains(typeOfProducts[index])) {
+        typeNow = event.target.closest(".buttons__button").id;
+        // Фильтрация элментов по типу
+        for (const element of blockForProducts.children) {
+            if (!element.classList.contains(typeNow)) {
                 element.classList.add("hidden");
             }
             else {
@@ -43,43 +90,36 @@ buttons.addEventListener("click", function (event) {
     }
 })
 
-let allPizzas = "";
-let boughtProducts = "";
-for (const element of products.children) {
-    allPizzas += `${element.children[1].children[0].textContent};${element.children[1].children[1].textContent};${element.children[3].textContent};${element.children[0].children[0].getAttribute("src")},`
-}
 
-localStorage.setItem("allPizzas", allPizzas);
-let temp, count = 0;
+const orders = document.querySelector("#orders");
 
-content.addEventListener("click", function(event){
+let boughtProducts = [];
+// Обнуление хранилища(при переходе от одной странички к другой)
+localStorage.setItem("boughtProducts", "");
+localStorage.setItem("count", boughtProducts.length);
+
+let buttonNow;
+blockForProducts.addEventListener("click", function(event){
     if (event.target.closest(".item__purchase")){
-        event.target.closest(".item__purchase").classList.toggle("bought");
-        for (const element of event.target.closest(".item__purchase").children) {
+
+        buttonNow = event.target.closest(".item__purchase");
+
+        buttonNow.classList.toggle("bought");
+        for (const element of buttonNow.children) {
             element.classList.toggle("hidden");
         }
         
-        index = findIndexOfPizza(products.children, event.target.closest(".item__purchase"));
-        if(event.target.closest(".item__purchase").classList.contains("bought")){
-            boughtProducts += `${index},`;
+        index = findIndexOfPizza(blockForProducts.children, buttonNow.parentElement);
 
-            count++;
-            
+        if(buttonNow.classList.contains("bought")){
+            boughtProducts.push(index);
         }
         else{
-            temp = `${index},`;
-            count--;
-
-            boughtProducts = boughtProducts.slice(0, boughtProducts.indexOf(temp)) + boughtProducts.slice(boughtProducts.indexOf(temp) + temp.length, boughtProducts.length);   
+            boughtProducts.splice(boughtProducts.indexOf(index), 1);
         }
 
-        localStorage.setItem("boughtProducts", boughtProducts);
-        localStorage.setItem("count", count);
-        linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+        localStorage.setItem("boughtProducts", boughtProducts.join(","));
+        localStorage.setItem("count", boughtProducts.length);
+        orders.textContent = `Оформить заказ(${boughtProducts.length})`;
     }
 })
-
-
-
-
-

@@ -3,26 +3,69 @@
   src: url("/fonts/Inner/Inter-VariableFont_slnt,wght.ttf");
 }
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   border: 0;
+}
+
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
-a,
-a:hover,
-a:active,
-a:focus,
-a:visited {
-  text-decoration: none;
+:focus, :active {
   outline: none;
+}
+
+a:focus, a:active, a, a:visited, a:hover {
+  outline: none;
+  text-decoration: none;
   color: white;
+}
+
+nav, footer, header, aside {
+  display: block;
 }
 
 html, body {
   height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
   font-size: 16px;
-  line-height: 24px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .wrapper {
@@ -40,7 +83,7 @@ html, body {
 
 .head {
   height: 126.45px;
-  background: url("../img/testBackground.jpg");
+  background: url("../img/background.jpg");
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -54,7 +97,7 @@ html, body {
   align-items: center;
   position: relative;
 }
-.head .head__green {
+.head .head__salad {
   position: absolute;
   right: 0;
   top: -30px;

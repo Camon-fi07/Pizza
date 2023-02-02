@@ -3,28 +3,8 @@
     src: url("/fonts/Inner/Inter-VariableFont_slnt\,wght.ttf")
 } 
 
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-}
+@import "_null.scss";
 
-a,
-a:hover,
-a:active,
-a:focus,
-a:visited {
-    text-decoration: none;
-    outline: none;
-    color: white;
-}
-
-html, body{
-    height: 100%;
-    font-size: 16px;
-    line-height: 24px;
-}
 
 .wrapper{
     font-family: 'Inter';
@@ -41,7 +21,7 @@ html, body{
 
 .head {
     height: 126.45px;
-    background: url("../img/testBackground.jpg");
+    background: url("../img/background.jpg");
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -56,7 +36,7 @@ html, body{
         position: relative;
     }
 
-    .head__green{
+    .head__salad{
         position: absolute;
         right: 0;
         top: -30px;

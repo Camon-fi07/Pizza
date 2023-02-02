@@ -10,7 +10,7 @@
         <header class="head">
             <div class="head__row">
                 <div class="head__logo logo">SANTORINIS</div>
-                <img class="head__image" src="img/vegetables/pexels-karolina-grabowska-4033324-removebg-preview.png" alt="">
+                <img class="head__image" src="img/vegetables/pepper.png" alt="">
                 <nav class="menu">
                     <div class="menu__item">
                         <a href="index.html">Главная</a>
@@ -19,10 +19,10 @@
                         <a href="choice.html">Выбрать пиццу</a>
                     </div>
                     <div class="menu__item">
-                        <a href="order.html">Оформить заказ</a>
+                        <a id = "orders" href="order.html">Оформить заказ</a>
                     </div>
                 </nav>
-                <img class="head__green" src="img/vegetables/greenSmall.png" alt="">
+                <img class="head__salad" src="img/vegetables/saladSmall.png" alt="">
             </div>
         </header>
         <main class="content">
@@ -37,159 +37,24 @@
                     Выбрать пиццу
                 </h1>
                 <div class="content__buttons buttons">
-                    <button class="buttons__button">
+                    <button id = "recomendated" class="buttons__button">
                         <span>Рекомендуем</span>
                     </button>
-                    <button class="buttons__button">
+                    <button id = "without-meat" class="buttons__button">
                         <span>Без мяса</span>
                     </button>
-                    <button class="buttons__button">
+                    <button id = "sweet" class="buttons__button">
                         <span>Сладкая</span>
                     </button>
-                    <button class="buttons__button">
+                    <button id = "stocks" class="buttons__button">
                         <span>Акции</span>
                     </button>
-                    <button class="buttons__button">
+                    <button id = 'drinks' class="buttons__button">
                         <span>Напитки</span>
                     </button>
                 </div>
                 <div class="products">
-                    <div class="products__items item recomendated stock">
-                        <div class="item__image">
-                            <img src="img/pizzas/Carbonara.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Карбонара</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок
-                        </p>
-                        <span class="item__cost">749 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated sweet">
-                        <div class="item__image">
-                            <img src="img/pizzas/Arriva.png">
-                        </div>
-                        <div class="item__title">
-                            <h2>Аррива!</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Цыпленок, острая чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла
-                        </p>
-                        <span class="item__cost">649 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated">
-                        <div class="item__image">
-                            <img src="img/pizzas/Diablo.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Диабло</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Острая чоризо, острый перец халапеньо, соус барбекю, митболы, томаты
-                        </p>
-                        <span class="item__cost">749 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated without-meat">
-                        <div class="item__image">
-                            <img src="img/pizzas/VegMush.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Овощи и грибы</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, томатный соус
-                        </p>
-                        <span class="item__cost">549 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated stock">
-                        <div class="item__image">
-                            <img src="img/pizzas/Carbonara.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Карбонара</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок
-                        </p>
-                        <span class="item__cost">749 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated sweet">
-                        <div class="item__image">
-                            <img src="img/pizzas/Arriva.png">
-                        </div>
-                        <div class="item__title">
-                            <h2>Аррива!</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Цыпленок, острая чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла
-                        </p>
-                        <span class="item__cost">649 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated">
-                        <div class="item__image">
-                            <img src="img/pizzas/Diablo.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Диабло</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Острая чоризо, острый перец халапеньо, соус барбекю, митболы, томаты
-                        </p>
-                        <span class="item__cost">749 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
-                    <div class="products__items item recomendated without-meat">
-                        <div class="item__image">
-                            <img src="img/pizzas/VegMush.png" alt="">
-                        </div>
-                        <div class="item__title">
-                            <h2>Овощи и грибы</h2>
-                            <span>30см</span>
-                        </div>
-                        <p class="item__text">
-                            Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, томатный соус
-                        </p>
-                        <span class="item__cost">549 ₽</span>
-                        <button class="item__purchase">
-                            <img src="img/bagBlack.png" alt="">
-                            <img class="hidden" src="img/bagWhite.png" alt="">
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </main>

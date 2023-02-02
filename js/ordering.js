@@ -1,47 +1,48 @@
-const testButton = document.querySelector(".testButton");
 const blockOfBoughtProducts = document.querySelector(".content__bought-products");
 const costOfOrdering = document.querySelector(".content__cost");
 const oldText = costOfOrdering.innerHTML;
 
-//Количество пицц
-const linkOrders = document.querySelector(".menu").children[2].children[0];
-linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+// Количество пицц
+const orders = document.querySelector("#orders");
+orders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
 
 //Обрабокта всех пицц
-let allPizzas = localStorage['allPizzas'].split(",");
-allPizzas = allPizzas.slice(0, allPizzas.length-1);
-allPizzas = allPizzas.map(function (element) {
-    return element.split(";");
-});
+let allProducts = [];
+const countOfProducts = Number(localStorage.getItem("countOfProducts"));
+for (let index = 0; index < countOfProducts; index++) {
+    allProducts.push(JSON.parse(localStorage.getItem(index)));
+}
 
-
+// Обработка купленных пицц
 let boughtProducts = localStorage['boughtProducts'].split(",");
-boughtProducts = boughtProducts.slice(0, boughtProducts.length - 1);
+for (const i in boughtProducts) {
+    boughtProducts[i] = {
+        count: 1,
+        index:boughtProducts[i],
+    }
+}
 
 //Вычисление стоимости заказа
 let cost = 0;
-function getCost(boughtProducts){
-    boughtProducts.forEach(element => {
-        if(element != "") cost += parseInt(allPizzas[Number(element)][2]);
-    });
-
-    costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
+for (const element of boughtProducts) {
+    if (element.index != "") cost += allProducts[Number(element.index)].cost;
 }
+costOfOrdering.textContent = `${oldText} ${cost} ₽`
+
 
 // Заполнение корзины
-getCost(boughtProducts);
 function addElement(index){
     blockOfBoughtProducts.insertAdjacentHTML(
         'beforeend',
         `<div class = "content__product product">
             <div class = "product__image">
-                <img src = '${allPizzas[index][3]}'> </div>
+                <img src = ${allProducts[index].image}> </div>
             <div class = "product__about">
-                <h2 class = "product__title">${allPizzas[index][0]}</h2>
-                <span class = "product__text">${allPizzas[index][1]}</span>
+                <h2 class = "product__title">${allProducts[index].name}</h2>
+                <span class = "product__text">${allProducts[index].size}</span>
             </div>
-            <div class="product__cost">${allPizzas[index][2]}</div>
-            <div class="product__panel">
+            <div class="product__cost">${allProducts[index].cost} ₽</div>
+            <div id = "${index}" class="product__panel">
                 <button class="product__panel_minus">-</button>
                 <span>1</span>
                 <button class="product__panel_plus">+</button>
@@ -52,70 +53,70 @@ function addElement(index){
     )
 }
 
-boughtProducts.forEach((element) => {if (element != "") addElement(Number(element))});
-
-//Удаление пиццы и обновление хранилища
-function deleteProduct(element){
-    let index;
-    for (index in blockOfBoughtProducts.children) {
-        if (blockOfBoughtProducts.children[index] == element){
-            break;
-        }
-    }
-    boughtProducts.splice(index, 1);
-    localStorage.setItem('boughtProducts', boughtProducts.join(",") + ",");
+for (const element of boughtProducts) {
+    if (element.index != "") addElement(Number(element.index));
 }
 
 
-let countOfProducts;
+//Удаление пиццы и обновление хранилища
+function deleteProduct(product){
+    for (const i in boughtProducts) {
+        if(boughtProducts[i].index == product) boughtProducts.splice(i, 1);
+    }
+
+    let newBoughtProducts = [];
+    for (const element of boughtProducts) {
+        newBoughtProducts.push(element.index);
+    }
+    localStorage.setItem("boughtProducts", newBoughtProducts.join(","));
+
+    localStorage.setItem("count", localStorage.getItem("count") - 1);
+    orders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+}
+
+
+let count, indexOfProuct;
 blockOfBoughtProducts.addEventListener("click", function(event){
     //минус
     if (event.target.closest(".product__panel_minus")){
-        countOfProducts = Number(event.target.closest(".product__panel_minus").nextElementSibling.textContent);
-        countOfProducts--;
+        indexOfProuct = event.target.closest(".product__panel_minus").parentElement.id;
 
-        // Изменение цены
-        cost -= parseInt(event.target.closest(".product__panel_minus").parentElement.previousElementSibling.textContent);
+        cost -= allProducts[indexOfProuct].cost;
+        costOfOrdering.innerHTML = `${oldText}${cost} ₽`;
 
-        costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
+        count = --boughtProducts.find(item => item.index == indexOfProuct).count;
 
-        if(countOfProducts == 0) {
-            deleteProduct(event.target.closest(".product__panel_minus").parentElement.parentElement);
-
+        if (count == 0) {
+            deleteProduct(indexOfProuct);
             event.target.closest(".product__panel_minus").parentElement.parentElement.remove();
-
-            localStorage.setItem("count", localStorage.getItem("count") - 1);
-            linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
-
+            
         }
         else{
-            event.target.closest(".product__panel_minus").nextElementSibling.textContent = countOfProducts;
+            event.target.closest(".product__panel_minus").nextElementSibling.textContent = count;
         }
+
     }
     // Плюс
     if (event.target.closest(".product__panel_plus")) {
-        countOfProducts = Number(event.target.closest(".product__panel_plus").previousElementSibling.textContent);
-        event.target.closest(".product__panel_plus").previousElementSibling.textContent = ++countOfProducts;
+        indexOfProuct = event.target.closest(".product__panel_plus").parentElement.id;
 
-        // Изменение цены
-        cost += parseInt(event.target.closest(".product__panel_plus").parentElement.previousElementSibling.textContent);
+        count = ++boughtProducts.find(item => item.index == indexOfProuct).count;
+        event.target.closest(".product__panel_plus").previousElementSibling.textContent = count;
 
-        costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
+        cost += allProducts[indexOfProuct].cost
+        costOfOrdering.innerHTML = `${oldText}${cost} ₽`;
+        
     }
     // Удаление
     if (event.target.closest(".product__cancel")){
-        cost -= parseInt(event.target.closest(".product__cancel").previousElementSibling.previousElementSibling.textContent) * parseInt(event.target.closest(".product__cancel").previousElementSibling.children[1].textContent);
+        indexOfProuct = event.target.closest(".product__cancel").previousElementSibling.id;
 
-        costOfOrdering.innerHTML = `${oldText}${cost} ${allPizzas[0][2][allPizzas[0][2].length - 1]}`;
+        count = boughtProducts.find(item => item.index == indexOfProuct).count;
+        cost -= allProducts[indexOfProuct].cost * count;
 
-        deleteProduct(event.target.closest(".product__cancel").parentElement);
+        costOfOrdering.innerHTML = `${oldText}${cost} ₽`;
 
         event.target.closest(".product__cancel").parentElement.remove();
-
-        localStorage.setItem("count", localStorage.getItem("count") - 1);
-        linkOrders.textContent = `Оформить заказ(${localStorage.getItem("count")})`;
+        deleteProduct(indexOfProuct);
     }
 })
-
-
-
