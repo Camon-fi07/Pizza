@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inner/Inter-VariableFont_slnt,wght.ttf");
+  src: url("/assets/fonts/Inner/Inter-VariableFont_slnt,wght.ttf");
 }
 * {
   padding: 0;
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .head {
   height: 126.45px;
-  background: url("../img/background.jpg");
+  background: url("../assets/img/background.jpg");
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -248,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 5px;
   width: 33px;
   height: 32px;
-  background: url("../img/ellipseBuy.png") center/cover no-repeat;
+  background: url("../assets/img/ellipseBuy.png") center/cover no-repeat;
   transition-property: transform;
   transition-duration: 0.12s;
 }

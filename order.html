@@ -10,7 +10,7 @@
         <header class="head">
             <div class="head__row">
                 <div class="head__logo logo">SANTORINIS</div>
-                <img class="head__image" src="img/vegetables/pepper.png" alt="">
+                <img class="head__image" src="assets/img/vegetables/pepper.png" alt="">
                 <nav class="menu">
                     <div class="menu__item">
                         <a href="index.html">Главная</a>
@@ -22,15 +22,15 @@
                         <a id = "orders" href="order.html">Оформить заказ</a>
                     </div>
                 </nav>
-                <img class="head__salad" src="img/vegetables/saladSmall.png" alt="">
+                <img class="head__salad" src="assets/img/vegetables/saladSmall.png" alt="">
             </div>
         </header>
         <main class="content">
             <div class="absolute-object content__meat">
-                <img src="img/meat.png" alt="">
+                <img src="assets/img/meat.png" alt="">
             </div>
             <div class="absolute-object content__fork">
-                <img src="img/fork.png" alt="">
+                <img src="assets/img/fork.png" alt="">
             </div>
             <div class="container">
                 <h1 class="content__title">
@@ -39,29 +39,30 @@
                 <span class="content__cost">Общая стоимость: </span>
                 <div class="content__bought-products">
                 </div>
-                <!-- Форма ещё не рабочая -->
-                <form class="content__form"
-                    action="https://shift-winter-2023-backend.onrender.com/api#/%F0%9F%8D%95%20pizza/PizzaController_createPizzaOrder"
-                    method="post">
+                <!-- Форма свёрстана, но по функционалу всё не особо хорошо -->
+                <form class="content__form form" method="post">
                     <h2 class="content__form-title">Контактные данные</h2>
                     <div class="content__form-row">
-                        <input name="firstName" type="text">
-                        <input name="lastName" type="text">
-                        <input name="patronymic" type="text">
-                        <input name="withoutPatronymic" type="checkbox">
-                        <input name="phoneNumber" type="tel">
-                        <input name="dateOfBirth" type="text">
+                        <input placeholder="Фамилия" minlength="2" maxlength="30" class="form__element" name="lastName" type="text">
+                        <input placeholder="Имя" minlength="2" maxlength="30" class="form__element" name="firstName" type="text">
+                        <input placeholder="Отчество" minlength="2" maxlength="30" class="form__element" name="patronymic" type="text">
+                        <input class="form__element form__element_small" name="withoutPatronymic" type="checkbox">
+                        <div class="description">Нет отчества</div>
+                        <input placeholder="номер телефона" class="form__element" name="phoneNumber" type="tel">
+                        <input placeholder="Дата рождения" class="form__element" name="dateOfBirth" type="date">
                     </div>
                     
                     <h2 class="content__form-title">Адрес доставки</h2>
                     <div class="content__form-row">
-                        <input name="firstName" type="text">
-                        <input name="lastName" type="text">
-                        <input name="patronymic" type="text">
-                        <input name="withoutPatronymic" type="checkbox">
-                        <textarea name="comment"></textarea>
+                        <input placeholder="Город" minlength="2" maxlength="50" class="form__element" name="city" type="text">
+                        <input placeholder="Улица" minlength="2" maxlength="60" class="form__element" name="street" type="text">
+                        <input placeholder="Дом" minlength="1" maxlength="10" class="form__element" name="house" type="text">
+                        <input placeholder="Квартира" minlength="1" maxlength="10" class="form__element" name = "flat" type="text">
+                        <input class="form__element form__element_small" name="withoutflat" type="checkbox">
+                        <div class="description">Нет квартиры</div>
+                        <textarea placeholder="Заметки для курьера" name="comment"></textarea>
                     </div>
-                    <button class="content__form-submit" type="submit">
+                    <button class="content__form-submit" >
                         <span>Отправить заказ</span>
                     </button>
                 </form>
@@ -80,13 +81,13 @@
                     </div>
                     <div class="footer__social-networks">
                         <a href="http://facebook.com/">
-                            <img src="img/social-networks/facebook.png" alt="">
+                            <img src="assets/img/social-networks/facebook.png" alt="">
                         </a>
                         <a href="https://twitter.com/">
-                            <img src="img/social-networks/twitter.png" alt="">
+                            <img src="assets/img/social-networks/twitter.png" alt="">
                         </a>
                         <a href="https://instagram.com/">
-                            <img src="img/social-networks/instagram.png" alt="">
+                            <img src="assets/img/social-networks/instagram.png" alt="">
                         </a>
                     </div>
                 </div>

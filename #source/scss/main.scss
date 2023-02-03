@@ -10,25 +10,29 @@ body{
 	min-height: 927px;
 }
 
-.wrapper{
-	min-height: 100%;
-	background: url("../img/background.jpg") 0/cover no-repeat;
-	color: white;
-	position: relative;
-	overflow: hidden;
-	.vegetables{
+.block-for-image{
+	position: absolute;
+	left: 0;
+	top: 0;
+	& img{
+		width: 100%;
+		height: 100%;
 		position: absolute;
 		left: 0;
 		top: 0;
-		& img{
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			object-fit: cover;
-		}
+		object-fit: cover;
 	}
+}
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	background: url("../assets/img/background.jpg") 0/cover no-repeat;
+	color: white;
+	position: relative;
+	overflow: hidden;
+	
 	.salad{
 		@include absoluteObject(345.8px, 321.32px, 1150px, 1px);
 		left: 100% - 345.8px/1440px * 100%;
@@ -61,19 +65,8 @@ body{
 }
 
 .content{
-	.ingredient{
-		position: absolute;
-		left: 0;
-		top: 0;
-		& img{
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			object-fit: cover;
-		}
-	}
+	position: relative;
+	flex: 1 1 auto;
 	.olives{
 		@include absoluteObject(200px, 200px, 146px, 674px);
 	}
@@ -98,6 +91,7 @@ body{
 	.sausage{
 		@include absoluteObject(125px, 126px, 1149px, 722px);
 	}
+
 }
 
 .head {

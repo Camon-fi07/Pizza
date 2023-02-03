@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inner/Inter-VariableFont_slnt,wght.ttf");
+  src: url("/assets/fonts/Inner/Inter-VariableFont_slnt,wght.ttf");
 }
 .wrapper {
   font-family: "Inter";
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .head {
   height: 126.45px;
-  background: url("../img/background.jpg");
+  background: url("../assets/img/background.jpg");
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -227,26 +227,51 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   width: 75%;
   align-items: center;
+  margin-bottom: 40px;
 }
-.content .content__form .content__form-row input, .content .content__form .content__form-row textarea {
+.content .content__form .content__form-row .form__element {
   border-radius: 10px;
   border: 1px solid #D4D4D4;
   margin: 0 24px 20px 0;
-}
-.content .content__form .content__form-row input {
   display: inline-block;
-  width: 28%;
-  min-width: 200px;
   height: 40px;
+  width: 18.5%;
+  display: flex;
+  align-items: center;
+  padding-left: 19px;
 }
-.content .content__form .content__form-row input:nth-child(4) {
+.content .content__form .content__form-row [name=house] {
+  width: 10%;
+}
+.content .content__form .content__form-row .description {
+  display: inline-block;
+  height: 40px;
+  max-width: 120px;
+  margin: 0 24px 0 0;
+}
+.content .content__form .content__form-row .form__element_small {
   min-width: 10px;
   width: 16px;
   height: 16px;
 }
 .content .content__form .content__form-row textarea {
+  padding: 10px 0 0 19px;
+  display: inline-block;
+  border: 1px solid #D4D4D4;
   width: 542px;
   height: 96px;
+}
+.content .content__form .content__form-row::-moz-placeholder {
+  font-size: 16px;
+  color: #C7C7C7;
+}
+.content .content__form .content__form-row:-ms-input-placeholder {
+  font-size: 16px;
+  color: #C7C7C7;
+}
+.content .content__form .content__form-row::placeholder {
+  font-size: 16px;
+  color: #C7C7C7;
 }
 .content .content__form .content__form-title {
   margin-bottom: 40px;
@@ -254,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 32px;
   line-height: 140%;
 }
-.content .content__form-submit {
+.content .content__form .content__form-submit {
   display: inline-block;
   min-width: 250px;
   width: 27%;
@@ -267,14 +292,19 @@ h1, h2, h3, h4, h5, h6 {
   transition-property: box-shadow, transform;
   transition-duration: 0.2s, 0.2s;
 }
-.content .content__form-submit:hover {
+.content .content__form .content__form-submit:hover {
   box-shadow: 0 0 3px 5px #dddddd;
   transform: scale(0.95);
 }
-.content .content__form-submit span {
+.content .content__form .content__form-submit span {
   font-size: 24px;
   line-height: 140%;
   color: white;
+}
+
+.note {
+  margin-right: 30px;
+  color: red;
 }
 
 .container {

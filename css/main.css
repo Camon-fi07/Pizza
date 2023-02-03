@@ -68,19 +68,12 @@ body {
   min-height: 927px;
 }
 
-.wrapper {
-  min-height: 100%;
-  background: url("../img/background.jpg") 0/cover no-repeat;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-.wrapper .vegetables {
+.block-for-image {
   position: absolute;
   left: 0;
   top: 0;
 }
-.wrapper .vegetables img {
+.block-for-image img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -88,6 +81,16 @@ body {
   top: 0;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: url("../assets/img/background.jpg") 0/cover no-repeat;
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 .wrapper .salad {
   padding: 0 24.0138888889% 22.3138888889% 0;
@@ -131,19 +134,9 @@ body {
   bottom: 0;
 }
 
-.content .ingredient {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.content .ingredient img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  -o-object-fit: cover;
-     object-fit: cover;
+.content {
+  position: relative;
+  flex: 1 1 auto;
 }
 .content .olives {
   padding: 0 13.8888888889% 13.8888888889% 0;
