@@ -11,6 +11,7 @@
             <div class="head__row">
                 <div class="head__logo logo">SANTORINIS</div>
                 <img class="head__image" src="assets/img/vegetables/pepper.png" alt="">
+                <button class="head__open-menu"><img src="assets/img/menu.png" alt="open"></button>
                 <nav class="menu">
                     <div class="menu__item">
                         <a href="index.html">Главная</a>
@@ -40,12 +41,12 @@
                 <div class="content__bought-products">
                 </div>
                 <!-- Форма свёрстана, но по функционалу всё не особо хорошо -->
-                <form class="content__form form" method="post">
+                <form action="#" class="content__form form">
                     <h2 class="content__form-title">Контактные данные</h2>
                     <div class="content__form-row">
                         <input placeholder="Фамилия" minlength="2" maxlength="30" class="form__element" name="lastName" type="text">
                         <input placeholder="Имя" minlength="2" maxlength="30" class="form__element" name="firstName" type="text">
-                        <input placeholder="Отчество" minlength="2" maxlength="30" class="form__element" name="patronymic" type="text">
+                        <input placeholder="Отчество"  minlength="2" maxlength="30" class="form__element" name="patronymic" type="text">
                         <input class="form__element form__element_small" name="withoutPatronymic" type="checkbox">
                         <div class="description">Нет отчества</div>
                         <input placeholder="номер телефона" class="form__element" name="phoneNumber" type="tel">
@@ -58,14 +59,22 @@
                         <input placeholder="Улица" minlength="2" maxlength="60" class="form__element" name="street" type="text">
                         <input placeholder="Дом" minlength="1" maxlength="10" class="form__element" name="house" type="text">
                         <input placeholder="Квартира" minlength="1" maxlength="10" class="form__element" name = "flat" type="text">
-                        <input class="form__element form__element_small" name="withoutflat" type="checkbox">
+                        <input class="form__element form__element_small" name="withoutFlat" type="checkbox">
                         <div class="description">Нет квартиры</div>
                         <textarea placeholder="Заметки для курьера" name="comment"></textarea>
                     </div>
-                    <button class="content__form-submit" >
-                        <span>Отправить заказ</span>
-                    </button>
                 </form>
+                <button class="content__form-submit">
+                    <span>Отправить заказ</span>
+                </button>
+                <div class="content__answer answer">
+                    <div class="answer__title">Ваш заказ принят</div>
+                    <div class="answer__image"><img src="assets/img/pizzas/VegMush.png"></div>
+                    <div class="answer__text">
+                        Доставим по указанному адресу в течение 30 минут
+                    </div>
+                </div>
+
             </div>
         </main>
         <footer class="footer">
@@ -96,5 +105,6 @@
         </footer>
     </div>
     <script src="js/ordering.js"></script>
+    <script src="js/burgerMenu.js"></script>
 </body>
 </html>

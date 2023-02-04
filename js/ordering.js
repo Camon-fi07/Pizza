@@ -106,10 +106,23 @@ blockOfBoughtProducts.addEventListener("click", function(event){
     }
 })
 
+
+// работа с формой
+const withoutPatronymic = document.querySelector("[name=withoutPatronymic]");
+const patronymic = document.querySelector("[name=patronymic]");
+withoutPatronymic.addEventListener("click", function () {
+    if (withoutPatronymic.checked) patronymic.setAttribute("disabled", "disabled");
+    else patronymic.removeAttribute("disabled");
+})
+
+const withoutFlat = document.querySelector("[name=withoutFlat]");
+const flat = document.querySelector("[name=flat]");
+withoutFlat.addEventListener("click", function () {
+    if (withoutFlat.checked) flat.setAttribute("disabled", "disabled");
+    else flat.removeAttribute("disabled");
+})
+
 const buttonSubmit = document.querySelector(".content__form-submit");
-
-
-// Форма
 
 function createNote(text){
     let note = document.createElement("div");
@@ -120,34 +133,56 @@ function createNote(text){
 
 // проверка длины тех или инх значений
 function check(order){
-    isRight = true;
-    if(order.details.user.firstname < 2){
-        createNote("длина имени должна быть не менее двух букв")
+    // Удаление старых замечаний
+    let oldNotes = document.querySelectorAll(".note");
+    if(oldNotes.length){
+        for (const element of oldNotes) {
+            element.remove();
+        }
+    }
+    
+    let isRight = true, minLength = 2;
+    if (order.details.user.firstname < minLength){
+        createNote("длина имени должна быть не менее двух букв");
         isRight = false;
     }
-    if (order.details.user.lastname < 2){
+    if (order.details.user.lastname < minLength){
         createNote("длина фамилии должна быть не менее двух букв");
         isRight = false;
     }
-    if (order.details.address.city < 2) {
+    if (order.details.address.city < minLength) {
         createNote("длина названия города должна быть не менее двух букв");
-        sRight = false;
+        isRight = false;
     }
-    if (order.details.address.street < 2) {
+    if (order.details.address.street < minLength) {
         createNote("длина названия улицы должна быть не менее двух букв");
-        sRight = false;
+        isRight = false;
     }
-    if (order.details.address.house < 1) {
+    if (order.details.address.house < minLength-1) {
         createNote("длина номера дома должна быть не менее двух букв");
-        sRight = false;
+        isRight = false;
     }
-    if (order.details.address.apartment < 1) {
+    if (order.details.address.apartment < minLength-1) {
         createNote("длина номера квартиры должна быть не менее двух букв");
-        sRight = false;
+        isRight = false;
     }
     return isRight;
 }
 
+async function sendingForm(order){
+    let response = await fetch('https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(order)
+    });
+
+    if (response.ok){
+        const answer = document.querySelector(".answer");
+        answer.style.display = "flex";
+    }
+}
 
 function AddProduct(index){
     this.id = index+1;
@@ -184,14 +219,7 @@ buttonSubmit.addEventListener("click", function(){
     }
 
     if(check(order)){
-        // если всё заполнено правильно, то отправляется запрос(сейчас выдаёт Failed to load resource: the server responded with a status of 405 () и выключается страничка)
-        let response = fetch('api/pizza/createOrder', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify(order)
-        });
+       sendingForm(order);
     }
-    
+
 })

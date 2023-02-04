@@ -3,7 +3,7 @@
 @mixin absoluteObject($width, $height, $left, $top) {
 	padding: 0 $width/1440px * 100% $height/1440px * 100% 0;
 	left: $left/1440px * 100%;
-	top: $top/927px * 100%;
+	top: $top/1440px * 100%;
 }
 
 body{
@@ -43,56 +43,27 @@ body{
 		}
 	}
 	.pepper{
-		@include absoluteObject(133.84px, 90.2px, 220px, 163px);
+		@include absoluteObject(133.84px, 90.2px, 220px, 255px);
 	}
 	.india-flowers{
-		@include absoluteObject(265.89px, 265.89px, -15px, 355.57px);
+		@include absoluteObject(265.89px, 265.89px, -15px, 450px);
 		& img{
 			transform: rotate(-6deg);
 		}
 	}
 	.tomato{
-		@include absoluteObject(185px, 163px, 1200px, 343px );
+		@include absoluteObject(185px, 163px, 1200px, 535px );
 	}
 	.garlic{
-		@include absoluteObject(296.88px, 295.33px, 23px, 610px);
+		@include absoluteObject(296.88px, 295.33px, 23px, 950px);
 		overflow: hidden;
 	}
 	.beans{
-		@include absoluteObject(208px, 208px, 1245px, 737px);
+		@include absoluteObject(208px, 208px, 1245px, 1037px);
 		bottom: 0;
 	}
 }
 
-.content{
-	position: relative;
-	flex: 1 1 auto;
-	.olives{
-		@include absoluteObject(200px, 200px, 146px, 674px);
-	}
-	.cheese{
-		@include absoluteObject(116px, 116px, 245px, 549px);
-	}
-	.red-pepper{
-		@include absoluteObject(125px, 125px, 392px, 411px);
-	}
-	.pepperoni{
-		@include absoluteObject(90px, 89px, 594px, 367px);
-	}
-	.bacon{
-		@include absoluteObject(125px, 125px, 780px, 340px);
-	}
-	.chicken{
-		@include absoluteObject(113px, 113px, 978px, 430px);
-	}
-	.meatballs{
-		@include absoluteObject(106px, 106px, 1096px, 570px);
-	}
-	.sausage{
-		@include absoluteObject(125px, 126px, 1149px, 722px);
-	}
-
-}
 
 .head {
 	position: relative;
@@ -100,6 +71,11 @@ body{
 	padding: 51px 0 0 79px;
 	display: flex;
 	flex-wrap: wrap;
+
+	.head__open-menu {
+		display: none;
+	}
+
 	.logo {
 		margin-right: 24%;
 		font-size: 24px;
@@ -114,15 +90,132 @@ body{
 		font-family: 'Inter';
 		width: 31%;
 		min-width: 417px;
-		& div:first-child{
+
+		& div:first-child {
 			text-decoration: underline;
 		}
+
 		.menu__item {
 			font-weight: 500;
 			font-size: 18px;
 		}
 	}
 }
+
+.content{
+	position: relative;
+	flex: 1 1 auto;
+	.content__creating-pizza {
+		padding: 0 692px/1440px*100% 392px/1440px*100% 0;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+	.creating-pizza {
+	}
+	
+	.name-of-ingredients{
+		width: 140%;
+		height: 100%;
+		left: 50%;
+		top: -14%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: cover;
+		}
+	}
+
+	.ellipse-big{
+		width: 150%;
+		height: 100%;
+		left: 50%;
+		top: 10%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+
+	.ellipse-small{
+		width: 90%;
+		height: 100%;
+		left: 50%;
+		top: 10%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+
+	.creating-pizza__red-peppers {
+		z-index: 4;
+		@include absoluteObject(700px, 1100px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+
+	}
+	.creating-pizza__cheese {
+		z-index: 3;
+		@include absoluteObject(1190px, 1100px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+	.creating-pizza__meatballs {
+		z-index: 3;
+		@include absoluteObject(892px, 1100px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+	.creating-pizza__bacon {
+		z-index: 3;
+		@include absoluteObject(1092px, 1100px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+	.creating-pizza__pepperoni {
+		z-index: 3;
+		@include absoluteObject(1092px, 1000px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+	.creating-pizza__ketchup {
+		z-index: 2;
+		@include absoluteObject(1190px, 1000px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+	.creating-pizza__pizza {
+		z-index: 1;
+		@include absoluteObject(1492px, 992px, 1px, 1px);
+		left: 50%;
+		transform: translate(-50%, 0);
+		& img{
+			object-fit: contain;
+		}
+	}
+
+}
+
+
 
 @media(max-width: 982px) {
 	.head {
@@ -137,6 +230,38 @@ body{
 			.menu__item{
 				font-size: 1.5rem;
 			}
+		}
+	}
+}
+
+@media(max-width: 732px) {
+	.head {
+		flex-direction: row;
+		justify-content: space-around;
+		.head__open-menu {
+			display: inline-block;
+			position: relative;
+			padding: 0 12% 12% 0;
+
+			& img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.menu {
+			position: relative;
+			right: 0;
+			min-width: 300px;
+			width: 70%;
+			height: 150px;
+			margin: 10px auto;
+			flex-direction: column;
+			justify-content: space-around;
+			display: none;
+			border: 1px solid blanchedalmond;
 		}
 	}
 }
