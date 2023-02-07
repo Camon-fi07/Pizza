@@ -3,7 +3,6 @@ async function getProducts(){
     let answer = await promise.json();
     return answer;
 }
-console.log("hello");
 
 getProducts().then(result => localStorage.setItem("allProducts", JSON.stringify(result)));
 const allProducts = JSON.parse(localStorage.getItem("allProducts"));
