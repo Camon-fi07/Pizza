@@ -4,6 +4,7 @@ async function getProducts(){
     return answer;
 }
 
+
 getProducts().then(result => localStorage.setItem("allProducts", JSON.stringify(result)));
 const allProducts = JSON.parse(localStorage.getItem("allProducts"));
 const blockForProducts = document.querySelector(".products");
