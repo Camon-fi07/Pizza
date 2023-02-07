@@ -1,0 +1,352 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active, a, a:visited, a:hover {
+  outline: none;
+  text-decoration: none;
+  color: white;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body {
+  min-height: 927px;
+}
+
+.block-for-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.block-for-image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: url("../assets/img/background.jpg") 0/cover no-repeat;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .salad {
+  padding: 0 24.0138888889% 22.3138888889% 0;
+  left: 79.8611111111%;
+  top: 0.0694444444%;
+  left: 75.9861111111%;
+  overflow: hidden;
+}
+.wrapper .salad img {
+  transform: rotate(5deg);
+  transform: translate(0, -5px);
+}
+.wrapper .pepper {
+  padding: 0 9.2944444444% 6.2638888889% 0;
+  left: 15.2777777778%;
+  top: 17.7083333333%;
+}
+.wrapper .india-flowers {
+  padding: 0 18.4645833333% 18.4645833333% 0;
+  left: -1.0416666667%;
+  top: 31.25%;
+}
+.wrapper .india-flowers img {
+  transform: rotate(-6deg);
+}
+.wrapper .tomato {
+  padding: 0 12.8472222222% 11.3194444444% 0;
+  left: 83.3333333333%;
+  top: 37.1527777778%;
+}
+.wrapper .garlic {
+  padding: 0 20.6166666667% 20.5090277778% 0;
+  left: 1.5972222222%;
+  top: 65.9722222222%;
+  overflow: hidden;
+}
+.wrapper .beans {
+  padding: 0 14.4444444444% 14.4444444444% 0;
+  left: 86.4583333333%;
+  top: 72.0138888889%;
+  bottom: 0;
+}
+
+.head {
+  position: relative;
+  z-index: 2;
+  padding: 51px 0 0 79px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.head .head__open-menu {
+  display: none;
+}
+.head .logo {
+  margin-right: 24%;
+  font-size: 24px;
+  font-family: "Bodoni MT";
+  letter-spacing: 0.0625rem;
+}
+.head .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter";
+  width: 31%;
+  min-width: 417px;
+}
+.head .menu div:first-child {
+  text-decoration: underline;
+}
+.head .menu .menu__item {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.content {
+  position: relative;
+  flex: 1 1 auto;
+}
+.content .content__creating-pizza {
+  padding: 0 48.0555555556% 27.2222222222% 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .name-of-ingredients {
+  width: 140%;
+  height: 100%;
+  left: 50%;
+  top: -14%;
+  transform: translate(-50%, 0);
+}
+.content .name-of-ingredients img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.content .ellipse-big {
+  width: 150%;
+  height: 100%;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+.content .ellipse-big img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .ellipse-small {
+  width: 90%;
+  height: 100%;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+.content .ellipse-small img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__red-peppers {
+  z-index: 4;
+  padding: 0 48.6111111111% 76.3888888889% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__red-peppers img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__cheese {
+  z-index: 3;
+  padding: 0 82.6388888889% 76.3888888889% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__cheese img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__meatballs {
+  z-index: 3;
+  padding: 0 61.9444444444% 76.3888888889% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__meatballs img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__bacon {
+  z-index: 3;
+  padding: 0 75.8333333333% 76.3888888889% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__bacon img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__pepperoni {
+  z-index: 3;
+  padding: 0 75.8333333333% 69.4444444444% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__pepperoni img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__ketchup {
+  z-index: 2;
+  padding: 0 82.6388888889% 69.4444444444% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__ketchup img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.content .creating-pizza__pizza {
+  z-index: 1;
+  padding: 0 103.6111111111% 68.8888888889% 0;
+  left: 0.0694444444%;
+  top: 0.0694444444%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.content .creating-pizza__pizza img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (max-width: 982px) {
+  .head {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 0 0;
+  }
+  .head .logo {
+    margin: 0 0 10px 0;
+  }
+  .head .menu {
+    width: 90%;
+  }
+  .head .menu .menu__item {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 732px) {
+  .head {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .head .head__open-menu {
+    display: inline-block;
+    position: relative;
+    padding: 0 12% 12% 0;
+  }
+  .head .head__open-menu img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .head .menu {
+    position: relative;
+    right: 0;
+    min-width: 300px;
+    width: 70%;
+    height: 150px;
+    margin: 10px auto;
+    flex-direction: column;
+    justify-content: space-around;
+    display: none;
+    border: 1px solid blanchedalmond;
+  }
+}
+@media (min-width: 1500px) {
+  .head {
+    justify-content: space-around;
+    padding-left: 0;
+  }
+  .head .menu {
+    width: 50%;
+  }
+}

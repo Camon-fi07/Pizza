@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/oder.css">
+    <title>Оформить заказ</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="head">
+            <div class="head__row">
+                <div class="head__logo logo">SANTORINIS</div>
+                <img class="head__image" src="assets/img/vegetables/pepper.png" alt="">
+                <button class="head__open-menu"><img src="assets/img/menu.png" alt="open"></button>
+                <nav class="menu">
+                    <div class="menu__item">
+                        <a href="index.html">Главная</a>
+                    </div>
+                    <div class="menu__item">
+                        <a href="choice.html">Выбрать пиццу</a>
+                    </div>
+                    <div class="menu__item">
+                        <a id = "orders" href="order.html">Оформить заказ</a>
+                    </div>
+                </nav>
+                <img class="head__salad" src="assets/img/vegetables/saladSmall.png" alt="">
+            </div>
+        </header>
+        <main class="content">
+            <div class="absolute-object content__meat">
+                <img src="assets/img/meat.png" alt="">
+            </div>
+            <div class="absolute-object content__fork">
+                <img src="assets/img/fork.png" alt="">
+            </div>
+            <div class="container">
+                <h1 class="content__title">
+                   Оформить заказ
+                </h1>
+                <span class="content__cost">Общая стоимость: </span>
+                <div class="content__bought-products">
+                </div>
+                <!-- Форма свёрстана, но по функционалу всё не особо хорошо -->
+                <form action="#" class="content__form form">
+                    <h2 class="content__form-title">Контактные данные</h2>
+                    <div class="content__form-row">
+                        <input placeholder="Фамилия" minlength="2" maxlength="30" class="form__element" name="lastName" type="text">
+                        <input placeholder="Имя" minlength="2" maxlength="30" class="form__element" name="firstName" type="text">
+                        <input placeholder="Отчество"  minlength="2" maxlength="30" class="form__element" name="patronymic" type="text">
+                        <input class="form__element form__element_small" name="withoutPatronymic" type="checkbox">
+                        <div class="description">Нет отчества</div>
+                        <input placeholder="номер телефона" class="form__element" name="phoneNumber" type="tel">
+                        <input placeholder="Дата рождения" class="form__element" name="dateOfBirth" type="date">
+                    </div>
+                    
+                    <h2 class="content__form-title">Адрес доставки</h2>
+                    <div class="content__form-row">
+                        <input placeholder="Город" minlength="2" maxlength="50" class="form__element" name="city" type="text">
+                        <input placeholder="Улица" minlength="2" maxlength="60" class="form__element" name="street" type="text">
+                        <input placeholder="Дом" minlength="1" maxlength="10" class="form__element" name="house" type="text">
+                        <input placeholder="Квартира" minlength="1" maxlength="10" class="form__element" name = "flat" type="text">
+                        <input class="form__element form__element_small" name="withoutFlat" type="checkbox">
+                        <div class="description">Нет квартиры</div>
+                        <textarea placeholder="Заметки для курьера" name="comment"></textarea>
+                    </div>
+                </form>
+                <button class="content__form-submit">
+                    <span>Отправить заказ</span>
+                </button>
+                <div class="content__answer answer">
+                    <div class="answer__title">Ваш заказ принят</div>
+                    <div class="answer__image"><img src="assets/img/pizzas/VegMush.png"></div>
+                    <div class="answer__text">
+                        Доставим по указанному адресу в течение 30 минут
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__row">
+                    <div class="footer__about">
+                        <div class="footer__logo logo">
+                            SANTORINIS
+                        </div>
+                        <span class="footer__copy">
+                            Copyright © 2000 - 2023
+                        </span>
+                    </div>
+                    <div class="footer__social-networks">
+                        <a href="http://facebook.com/">
+                            <img src="assets/img/social-networks/facebook.png" alt="">
+                        </a>
+                        <a href="https://twitter.com/">
+                            <img src="assets/img/social-networks/twitter.png" alt="">
+                        </a>
+                        <a href="https://instagram.com/">
+                            <img src="assets/img/social-networks/instagram.png" alt="">
+                        </a>
+                    </div>
+                </div>
+        
+            </div>
+        </footer>
+    </div>
+    <script src="js/ordering.js"></script>
+    <script src="js/burgerMenu.js"></script>
+</body>
+</html>
